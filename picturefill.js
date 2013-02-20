@@ -31,7 +31,8 @@
 				if( !picImg ){
 					picImg = w.document.createElement( "img" );
 					picImg.alt = ps[ i ].getAttribute( "data-alt" );
-					ps[ i ].appendChild( picImg );
+					//ps[ i ].appendChild( picImg ); //original picturefill appends the new element
+					ps[ i ].insertBefore( picImg, ps[ i ].firstChild ); // I prefer to prepend it
 				}
 				
 				picImg.src =  matches.pop().getAttribute( "data-src" );
